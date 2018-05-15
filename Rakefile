@@ -1,7 +1,11 @@
 require "bundler/gem_tasks"
-require "rspec/core/rake_task"
+require "rake/testtask"
 
-RSpec::Core::RakeTask.new(:spec)
+Rake::TestTask.new(:test) do |t|
+  t.libs << "test"
+  t.libs << "lib"
+  t.test_files = FileList["test/**/*_test.rb"]
+end
 
 require "rake/extensiontask"
 
@@ -11,4 +15,4 @@ Rake::ExtensionTask.new("yarcsv") do |ext|
   ext.lib_dir = "lib/yarcsv"
 end
 
-task :default => [:clobber, :compile, :spec]
+task :default => [:clobber, :compile, :test]
