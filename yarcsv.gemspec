@@ -27,4 +27,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake-compiler"
   spec.add_development_dependency "test-unit"
   spec.add_development_dependency "benchmark-ips"
+  spec.add_development_dependency "ffi"
 end
